@@ -7,7 +7,7 @@ const router = express.Router();
 
 /* GET users listing. */
 // GET /users - Admin only route to fetch all users
-router.get('/', authenticate.verifyUser, verifyAdmin, function(req, res, next) {
+router.get('/', authenticate.verifyUser, authenticate.verifyAdmin, function(req, res, next) {
     User.find()
     .then(users => {
         res.statusCode = 200;
